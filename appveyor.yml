@@ -14,5 +14,6 @@ init:
 
 install:
   - "%PYTHON%/Scripts/pip.exe install -r requirements.txt"  
+  
 build_script:
-  - python server.py build
+  - python server.py test
