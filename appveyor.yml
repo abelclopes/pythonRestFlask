@@ -16,6 +16,7 @@ install:
   - "%PYTHON%/Scripts/pip.exe install wheel"
   - "%PYTHON%/Scripts/pip.exe install nose"
   - "%PYTHON%/Scripts/pip.exe install coverage"
+  - pip install --upgrade setuptools
 
 build_script:
   - python setup.py build
