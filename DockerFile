@@ -3,9 +3,13 @@ FROM python:2.7
 
 ADD server.py /
 RUN pip -V
-RUN virtualenv venv
-RUN source venv/bin/activate
-RUN pip install flask flask-jsonpify flask-sqlalchemy flask-restful
-RUN pip freeze
+COPY . /opt/app
+WORKDIR /opt/app
+RUN pip install -r requirements.txt
+
+COPY requirements.txt /opt/app/requirements.txt
+WORKDIR /opt/app
+RUN pip install -r requirements.txt
+COPY . /opt/app
 
 CMD [ "python", "./server.py" ]
