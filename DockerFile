@@ -1,0 +1,11 @@
+
+FROM python:2.7
+
+ADD server.py /
+
+RUN virtualenv venv
+RUN source venv/bin/activate
+RUN pip install flask flask-jsonpify flask-sqlalchemy flask-restful
+RUN pip freeze
+
+CMD [ "python", "./server.py" ]
