@@ -13,14 +13,6 @@ init:
   - "ECHO %PYTHON% %PYTHON_VERSION% %PYTHON_ARCH%"
 
 install:
-  - "%PYTHON%/Scripts/pip.exe install wheel"
-  - "%PYTHON%/Scripts/pip.exe install nose"
-  - "%PYTHON%/Scripts/pip.exe install coverage"
-  - pip install --upgrade setuptools
-
+  - "%PYTHON%/Scripts/pip.exe install -r requirements.txt"  
 build_script:
-  - python setup.py build
-test_script:
-  - "%PYTHON%/Scripts/nosetests"
-deploy_script:
-  - python setup.py sdist bdist_wheel upload
+  - python server.py build
