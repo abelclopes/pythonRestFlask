@@ -12,6 +12,10 @@ python:
 # command to install dependencies
 install:
   - pip install -r requirements.txt
+  - virtualenv venv
+  - source venv/bin/activate
+  - pip install flask flask-jsonpify flask-sqlalchemy flask-restful
+  - pip freeze
 # command to run tests
 script:
   - pytest # or py.test for Python versions 3.5 and below
