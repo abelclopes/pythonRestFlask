@@ -14,5 +14,6 @@ install:
   - pip freeze
   # - pip install pytest
 # command to run tests
-#script:
+script:
+  - python server.py runserver
 #  - pytest # or py.test for Python versions 3.5 and below
