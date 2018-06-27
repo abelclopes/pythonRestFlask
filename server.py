@@ -9,7 +9,7 @@ app = Flask(__name__)
 api = Api(app)
 
 
-class Employees(Resource):
+class Clientes(Resource):
     def get(self):
         conn = db_connect.connect() # connect to database
         query = conn.execute("select * from employees") # This line performs query and returns json result
@@ -49,7 +49,7 @@ class Tracks(Resource):
         return jsonify(result)
 
     
-class Employees_Name(Resource):
+class Clientes_Nome(Resource):
     def get(self, employee_id):
         conn = db_connect.connect()
         query = conn.execute("select * from employees where EmployeeId =%d "  %int(employee_id))
@@ -57,9 +57,9 @@ class Employees_Name(Resource):
         return jsonify(result)
 
 
-api.add_resource(Employees, '/employees') # Route_1
+api.add_resource(Clientes, '/clientes') # Route_1
 api.add_resource(Tracks, '/tracks') # Route_2
-api.add_resource(Employees_Name, '/employees/<employee_id>') # Route_3
+api.add_resource(Clientes_Nome, '/employees/<employee_id>') # Route_3
 
 
 if __name__ == '__main__':
